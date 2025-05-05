@@ -25,7 +25,8 @@ described in the **Common Errors** section of this guide.
 2.  Access the library menu by choosing the plus button next to
     **Libraries** within the side menu of the Scripts window
 
-![](\images\image2.png)
+![](\images\image2.png) 
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image2.png)
 
 3.  Locate the i-Plus library by pasting the following code into the
     **Script ID** and selecting look up
@@ -35,6 +36,7 @@ described in the **Common Errors** section of this guide.
 ```
 
 ![](\images\image3.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image3.png)
 
 4.  Leave the version settings as the default HEAD. Change the
     identifier name to “iPlus” making sure to maintain the same
@@ -45,6 +47,7 @@ iPlus
 ```
 
 ![](\images\image4.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image4.png)
 
 5.  In the Code.gs file, delete any text that was automatically created
     when creating the Apps Script project. Copy the code below and paste
@@ -52,6 +55,7 @@ iPlus
     changes to the project.
 
 ![](\images\image6.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image6.png)
 
 ``` r
 // DO NOT EDIT THIS EXCEPT TO ADD A CALL TO A FUNCTION
@@ -100,6 +104,7 @@ function onEdit(e) {
     Google Sheet.
 
 ![](\images\image5.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image5.png)
 
 ## Data Management
 
@@ -151,6 +156,7 @@ you will receive the following error message as a popup in the sheets
 view.
 
 ![](\images\image8.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image8.png)
 
 To remedy this error, any transformations to the i-Ready sheets must be
 deleted. In the following sheets, delete any column with the header
@@ -164,3 +170,4 @@ There may be duplicates of these columns, and any duplicates should also
 be deleted, as seen in the following image.
 
 ![](\images\image9.png)
+![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image9.png)
