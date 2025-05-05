@@ -1,6 +1,6 @@
 ---
 title: "i-Plus User Guide"
-format: html
+format: gfm
 author:
   - name: Amelia Babb
     corresponding: true

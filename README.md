@@ -1,0 +1,166 @@
+# i-Plus User Guide
+Amelia Babb, Teddy Martin, Mags McLaughlin, Tillie Slosser
+
+## Introduction
+
+i-Plus is a tool developed by students in SDS 410: Capstone in
+Statistical & Data Sciences for Elmhurst United Middle School. This tool
+is integrated into Google Sheets using Google Apps Scripts and allows
+for easier and more customizable visualization of data provided by the
+i-Ready testing program. The steps to install i-Plus into Google Sheets
+containing student data from Elmhurst are detailed in the **Installing
+i-Plus** section of this user guide. Additionally, certain data
+management practices are required to keep i-Plus functioning properly.
+These steps are described in the **Data Management** section of this
+guide. The most common error that arises when running i-Plus is
+described in the **Common Errors** section of this guide.
+
+## Installing i-Plus
+
+1.  Access Google Apps Scripts by navigating to **Extensions \> Apps
+    Script** within the sheet you want to add i-Plus to
+
+![](\images\image1.png)
+
+2.  Access the library menu by choosing the plus button next to
+    **Libraries** within the side menu of the Scripts window
+
+![](\images\image2.png)
+
+3.  Locate the i-Plus library by pasting the following code into the
+    **Script ID** and selecting look up
+
+``` r
+1os5M3_htGWveLyoZGitnTZD3SnwptfRWwul15TmaodITFAuO_6_M4-3w
+```
+
+![](\images\image3.png)
+
+4.  Leave the version settings as the default HEAD. Change the
+    identifier name to “iPlus” making sure to maintain the same
+    capitalization. Select Add.
+
+``` r
+iPlus
+```
+
+![](\images\image4.png)
+
+5.  In the Code.gs file, delete any text that was automatically created
+    when creating the Apps Script project. Copy the code below and paste
+    it into the Code.gs file. Select the save button to save your
+    changes to the project.
+
+![](\images\image6.png)
+
+``` r
+// DO NOT EDIT THIS EXCEPT TO ADD A CALL TO A FUNCTION
+function onOpen() {
+  const ui = SpreadsheetApp.getUi(); 
+  // ------------------------------------ CREATE MENU ------------------------------------
+  ui.createMenu('iPlus')
+    .addItem('Refresh Data', 'joinSheets')
+    .addSubMenu(ui.createMenu('Pre-built Visualizations')
+          .addItem('Scatterplot: Attendance vs. Score Improvement', 'preBuiltScatterplot')
+          .addItem('Boxplot: Race vs. Score Improvement', 'prebuiltBoxplot')
+          .addItem('Jitterplot: Score Improvement by Math Teacher', 'drawTeacherScoreJitterPlot'))
+    .addSubMenu(ui.createMenu('Build-Your-Own Visualizations')
+          .addItem('Scatterplot', 'customScatterplot')
+          .addItem('Boxplot', 'customBoxplot')
+          .addItem('Jitterplot', 'customJitterplot'))
+    .addToUi();
+
+ // ------------------------------------ UPDATE IF NEEDED ------------------------------------
+  // check if update to merged data is needed
+  const props = PropertiesService.getDocumentProperties();
+  const needsUpdate = props.getProperty("needsUpdate");
+  console.log()
+  if (needsUpdate === "true") {
+    // Example: show a toast message
+    SpreadsheetApp.getActiveSpreadsheet().toast("Updates are needed based on recent edits. Please wait until the next message", "WARNING: Updating `Merged Data`", 200);
+    joinSheets();
+    SpreadsheetApp.getActiveSpreadsheet().toast("Updates are finished. You may continue", "`Merged Data` update finished", 200);
+}
+}
+
+
+function onEdit(e) {
+  const range = e.range;
+  const oldValue = e.oldValue;
+  const newValue = range.getValue();
+
+  if (oldValue !== newValue) {
+    const props = PropertiesService.getDocumentProperties();
+    props.setProperty("needsUpdate", "true");
+  }
+}
+```
+
+6.  Select the run button to run i-Plus and integrate it into your
+    Google Sheet.
+
+![](\images\image5.png)
+
+## Data Management
+
+When running i-Plus, certain column headers and sheet names are used to
+find the correct data to visualize. Sheet names are most important for
+accessing the correct data to visualize. The following sheet names must
+stay the same to maintain functionality of i-Plus:
+
+- Elmhurst Data
+- 6th Grade Math iReady
+- 7th Grade Math iReady
+- 8th Grade Math iReady
+
+Column headers are most important for creating visualizations contained
+in the **Pre-Built Visualizations** menu within i-Plus. The following
+column headers must stay the same to maintain functionality of these
+visualizations:
+
+- Race
+- Attendance
+- Math Teacher
+- Initial Scale Score
+- Current Scale Score
+
+Column order is important for only one column. The column containing
+student ID number must be the first column in all of the following
+sheets to properly merge i-Ready testing data with Elmhurst demographic
+data:
+
+- Elmhurst Data
+- 6th Grade Math iReady
+- 7th Grade Math iReady
+- 8th Grade Math iReady
+
+In future iterations of Google Sheets used with i-Plus, please ensure
+that these standard sheet names, column headers and column order are
+maintained to retain functionality of i-Plus. If the headers are
+renamed, custom-built visualizations will still run smoothly, but the
+pre-built visualizations will break. If the ID column is not kept as the
+first column, both pre-built and custom-built visualizations will break,
+and i-Plus will be non-functional.
+
+## Common Errors
+
+The most common error occurs when trying to join the i-Ready data across
+grades. This error may occur when the refresh data functions are
+interrupted and not allowed to run in entirety. If this error occurs,
+you will receive the following error message as a popup in the sheets
+view.
+
+![](\images\image8.png)
+
+To remedy this error, any transformations to the i-Ready sheets must be
+deleted. In the following sheets, delete any column with the header
+“Grade” and “Score Change”:
+
+- 6th Grade Math iReady
+- 7th Grade Math iReady
+- 8th Grade Math iReady
+
+There may be duplicates of these columns, and any duplicates should also
+be deleted, as seen in the following image.
+
+![](\images\image9.png)
