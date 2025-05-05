@@ -104,6 +104,10 @@ function onEdit(e) {
 ![](\images\image5.png)
 ![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image5.png)
 
+## Using i-Plus
+
+When creating a pre-built visualization, the desired plot can be built while having any tab within the Google Sheet open. However, when creating a custom visualization, the tab with the desired data must be actively selected while building the plot. For example, to build a plot using the Score Change column, you must have the Merged Data tab selected.
+
 ## Data Management
 
 When running i-Plus, certain column headers and sheet names are used to
