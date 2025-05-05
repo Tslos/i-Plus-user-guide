@@ -35,6 +35,7 @@ described in the **Common Errors** section of this guide.
 1os5M3_htGWveLyoZGitnTZD3SnwptfRWwul15TmaodITFAuO_6_M4-3w
 ```
 
+
 ![](\images\image3.png)
 ![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image3.png)
 
@@ -45,9 +46,6 @@ described in the **Common Errors** section of this guide.
 ``` r
 iPlus
 ```
-
-![](\images\image4.png)
-![](https://github.com/Tslos/i-Plus-user-guide/blob/main/images/image4.png)
 
 5.  In the Code.gs file, delete any text that was automatically created
     when creating the Apps Script project. Copy the code below and paste
