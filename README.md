@@ -20,7 +20,7 @@ described in the **Common Errors** section of this guide.
 1.  Access Google Apps Scripts by navigating to **Extensions \> Apps
     Script** within the sheet you want to add i-Plus to
 
-![](\images\image1.png)
+![](images\image1.png)
 
 2.  Access the library menu by choosing the plus button next to
     **Libraries** within the side menu of the Scripts window
