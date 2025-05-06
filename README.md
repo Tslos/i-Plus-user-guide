@@ -151,6 +151,8 @@ and i-Plus will be non-functional.
 
 ## Common Errors
 
+Error checking for column and sheet name errors is built in to i-Plus. When trying to access a column with a changed name, an error will appear on screen in the Google Sheets window. To remedy these errors, you can revert columns back to their original names.
+
 The most common error occurs when trying to join the i-Ready data across
 grades. This error may occur when the refresh data functions are
 interrupted and not allowed to run in entirety. If this error occurs,
