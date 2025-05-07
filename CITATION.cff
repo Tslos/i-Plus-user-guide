@@ -11,7 +11,5 @@ authors:
     given-names: Tillie
 title: "i-Plus User Guide"
 version: 1.0.0
-identifiers:
-  - type: url
-    value: github.com/Tslos/i-Plus-user-guide
+url: "https://github.com/Tslos/i-Plus-user-guide"
 date-released: 2025-05-05
