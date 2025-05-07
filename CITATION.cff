@@ -3,11 +3,11 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: Babb
     given-names: Amelia
-- family-names: Martin
+  - family-names: Martin
     given-names: Teddy
-- family-names: McLaughlin
+  - family-names: McLaughlin
     given-names: Mags
-- family-names: Slosser
+  - family-names: Slosser
     given-names: Tillie
 title: "i-Plus User Guide"
 version: 1.0.0
